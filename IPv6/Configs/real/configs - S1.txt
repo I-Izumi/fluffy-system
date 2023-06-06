@@ -110,19 +110,31 @@ interface gig1/0/20
  description PRINTER
 exit
 
+interface Port-channel1
+ switchport mode trunk
+ switchport trunk allowed vlan 1-2,10-11,20-21,30-31,40-41,50-51,60-61,70-71,80-81,90
+ exit
 
+ interface Port-channel2
+ switchport mode trunk
+ switchport trunk allowed vlan 1-2,10-11,20-21,30-31,40-41,50-51,60-61,70-71,80-81,90
+ exit
+ 
 interface range gig1/1/1 - gig1/1/2
  switchport mode trunk
  switchport trunk allowed vlan 1-2,10-11,20-21,30-31,40-41,50-51,60-61,70-71,80-81,90
  channel-protocol pagp
  channel-group 2 mode desirable
 exit
+
 interface range gig1/1/3 - gig1/1/4
  switchport mode trunk
  switchport trunk allowed vlan 1-2,10-11,20-21,30-31,40-41,50-51,60-61,70-71,80-81,90
  channel-protocol lacp
  channel-group 1 mode active
 exit
+
+
 
 
 crypto key generate rsa general-keys modulus 1024
